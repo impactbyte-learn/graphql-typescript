@@ -13,7 +13,7 @@ createConnection()
     const server = new GraphQLServer({
       resolvers,
       typeDefs,
-      context: ctx => ({ ctx, db: connection })
+      context: ctx => ({ ...ctx, db: connection })
     });
     server.start(() => console.log("[server] listening ..."));
   })
